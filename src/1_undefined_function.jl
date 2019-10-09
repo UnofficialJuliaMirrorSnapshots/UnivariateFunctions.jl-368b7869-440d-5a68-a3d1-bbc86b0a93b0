@@ -1,8 +1,12 @@
 import Base.+, Base.-, Base./, Base.*, Base.^
 import SchumakerSpline.evaluate
-function evaluate(f::Undefined_Function, point::Float64)
+function evaluate(f::Undefined_Function, point::Union{Real,Date,DatePeriod})
     missing
 end
+function (s::Undefined_Function)(x::Union{Real,Date,DatePeriod})
+    return missing
+end
+
 function derivative(f::Undefined_Function)
     return f
 end
@@ -10,28 +14,16 @@ function indefinite_integral(f::Undefined_Function)
     return f
 end
 
-function +(f::Undefined_Function, number::Float64)
+function +(f::Undefined_Function, number::Real)
     return f
 end
-function -(f::Undefined_Function, number::Float64)
+function -(f::Undefined_Function, number::Real)
     return f
 end
-function *(f::Undefined_Function, number::Float64)
+function *(f::Undefined_Function, number::Real)
     return f
 end
-function /(f::Undefined_Function, number::Float64)
-    return f
-end
-function +(f::Undefined_Function, number::Integer)
-    return f
-end
-function -(f::Undefined_Function, number::Integer)
-    return f
-end
-function *(f::Undefined_Function, number::Integer)
-    return f
-end
-function /(f::Undefined_Function, number::Integer)
+function /(f::Undefined_Function, number::Real)
     return f
 end
 function ^(f::Undefined_Function, number::Integer)
